@@ -5,7 +5,7 @@ export function Currency() {
   const [rates, setRates] = useState([]);
   const [filter, setFilter] = useState('');
   const [currency, setCurrency] = useState('BTC')
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   const fetchAPI = async () => {
     try {
@@ -21,10 +21,10 @@ export function Currency() {
     fetchAPI();
   }, []);
 
-  console.log(rates);
   function ConversionToBTC() {
-    const { value } = rates.find(({ unit }) => unit === currency );
-    return quantity / value;
+    const findValue = rates.find(({ unit }) => unit === currency );
+    if (findValue) return (quantity / findValue.value).toFixed(8);
+    return 1;
   }
 
   return (
@@ -61,11 +61,16 @@ export function Currency() {
             <th>Name</th>
             <th>Unity</th>
             <th>Type</th>
-            <th>Value</th>
+            <th>1 BTC</th>
           </tr>
         {
           rates
-          .filter(({ name }) => name.toLowerCase().includes(filter))
+          .filter(({ name, unit, type }) => {
+            const nameFilter = name.toLowerCase().includes(filter)
+            const unityFilter = unit.toLowerCase().includes(filter)
+            const typeFilter = type.toLowerCase().includes(filter)
+            return nameFilter || unityFilter || typeFilter;
+          })
           .map(({ name, type, unit, value}) => (
             <tr className="itemRates" key={ name }>
               <td>{ name }</td>
