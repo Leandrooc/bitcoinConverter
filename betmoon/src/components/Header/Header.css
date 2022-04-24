@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: red;
+  border: 2px solid black;
+  height: 50px;
+}
