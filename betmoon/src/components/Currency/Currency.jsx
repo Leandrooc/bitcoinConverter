@@ -34,11 +34,11 @@ export function Currency() {
         <input onChange={ ({ target: { value } }) => setFilter(value.toLowerCase()) } />
       </div>
       <main>
-        <div>
+        <div className="childrenMain">
           <h5>Quantity:</h5>
           <input value={ quantity } onChange={ ({ target: { value }}) => setQuantity(value) } />
         </div>
-        <div>
+        <div className="childrenMain">
           <h5>Currency:</h5>
         <select onChange={ ({ target: { value } }) => setCurrency(value)}>
           {
@@ -48,21 +48,23 @@ export function Currency() {
           }
         </select>
         </div>
-        <div>
+        <div className="childrenMain">
           <h5>Conversion to BTC:</h5>
           <p>{ quantity } { currency } is equal to { ConversionToBTC() } BTC</p>
         </div>
       </main>
-      <div className="rates">
-      <table border="1">
-        <caption>Currency's</caption>
-        <tbody>
+      <div className="table-wrapper">
+      <table className="fl-table">
+        <caption><h2>Conversion table</h2></caption>
+        <thead>
           <tr>
             <th>Name</th>
             <th>Unity</th>
-            <th>Type</th>
-            <th>1 BTC</th>
+            <th>Currency</th>
+            <th>Conversion to 1 BTC</th>
           </tr>
+        </thead>
+          <tbody>
         {
           rates
           .filter(({ name, unit, type }) => {
