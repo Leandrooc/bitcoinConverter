@@ -7,7 +7,7 @@ header ul {
   list-style: none;
   display: flex;
   flex-flow: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   background-color: #f8f8f8;
   border: 2px solid black;
