@@ -1,5 +1,5 @@
 # BitcoinConverter
-Bitcoin Converter made with the CoinGecko API
+Bitcoin Converter made with the CoinGecko API and React JS.
 
 <img src="https://i.ibb.co/4TbFcNg/btc.png" alt="btc" border="0">
 
