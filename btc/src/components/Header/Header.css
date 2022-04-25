@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f8f8;
+  border: 2px solid black;
+  height: 50px;
+}
